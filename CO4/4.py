@@ -1,27 +1,38 @@
-#Create a class Time with private attributes hour, minute and second. Overload ‘+’ operator to 
-#find sum of 2 time.
+#Create a class Time with private attributes hour, minute and second.
+#  Overload ‘+’ operator to find sum of 2 time.
 
-class time:
+class Time:
     def __init__(self):
-        self.__h=int(input("enter the hour"))
-        self.__m=int(input("enter the minutes"))
-        self.__s=int(input("enter the seconds"))
-    def __add__(self,t2):
-        hours=self.__h+t2.__h
-        print("sum of hours",hours)
-        minutes=self.__m+t2.__m
-        print("sum of minutes",minutes)
-        seconds=self.__s+t2.__s
-        print("sum of seconds",seconds)
-        if minutes>60:
-            hours+1
-            minutes-=60
-        if seconds>60:
-            minutes+=1
-            seconds-=60
-        return(hours,minutes,seconds)
-t1=time()
-t2=time()
-print("sum of h",obj1.hours)
-print("sum of m",obj1.minutes)
-print("sum of s",obj1.seconds)
+        self.__h=int(input("Enter the hour:"))
+        self.__m=int(input("Enter the minute:"))
+        self.__s=int(input("Enter the second:"))
+    def __add__(self,time2):
+        hour =self.__h + time2.__h
+
+        minute =self.__m + time2.__m
+        
+        second  =self.__s + time2.__s
+        
+        if minute >=60:
+            q=int(minute/60)
+            r=minute%60
+            hour =hour+q
+            minute=r
+        second= self.__s + time2.__s    
+        if second >=60:
+            q1=int(second/60)
+            r1=second%60
+            minute =minute +q1
+            second =r1   
+        #return second,minute,hour
+        print("sum of Hours:",hour)
+        print("sum of minute:",minute)
+        print("sum of second:",second)         
+
+print("Time of first object")
+time1=Time()
+print("Time of second object")   
+time2=Time()    
+print("-------------------")    
+time1.__add__(time2)
+print("-------------------")    
